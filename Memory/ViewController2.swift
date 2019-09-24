@@ -1,5 +1,5 @@
 //
-//  ViewController1.swift
+//  ViewController2.swift
 //  Memory
 //
 //  Created by Mikołajczyk Grzegorz on 24/09/2019.
@@ -8,21 +8,17 @@
 
 import UIKit
 
-class ViewController1: UIViewController {
+class ViewController2: UIViewController {
 
+    var level:String?
+    @IBOutlet weak var test: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        test.text = level
         // Do any additional setup after loading the view.
     }
-    @IBAction func easy(_ sender: UIButton) {
-        
-    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! ViewController2
-        dest.level = "LOL"
-    }
 
     /*
     // MARK: - Navigation
