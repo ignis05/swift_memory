@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController1: UIViewController {
+    
+    var hard:Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,12 +18,15 @@ class ViewController1: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func easy(_ sender: UIButton) {
-        
+        hard = false
     }
     
+    @IBAction func hard(_ sender: UIButton) {
+        hard = true
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dest = segue.destination as! ViewController2
-        dest.level = "LOL"
+        dest.hard = hard
     }
 
     /*

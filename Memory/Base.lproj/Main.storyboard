@@ -51,6 +51,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="hard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUu-ym-OZt"/>
                                     <segue destination="Ee2-Js-C9O" kind="show" id="C5z-hC-6Hz"/>
                                 </connections>
                             </button>

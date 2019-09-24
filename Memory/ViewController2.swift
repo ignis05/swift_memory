@@ -10,12 +10,17 @@ import UIKit
 
 class ViewController2: UIViewController {
 
-    var level:String?
+    var hard:Bool!
     @IBOutlet weak var test: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        test.text = level
+        if(hard){
+            test.text = "hard"
+        }
+        else {
+            test.text = "easy"
+        }
         // Do any additional setup after loading the view.
     }
     
