@@ -25,14 +25,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxy-K7-kXp">
-                                <rect key="frame" x="305" y="422" width="158" height="53"/>
+                                <rect key="frame" x="294" y="422" width="180" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.04486640304286782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="JO2-Te-FYn"/>
+                                    <constraint firstAttribute="width" constant="180" id="OA1-US-N5X"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Easy (4x3)"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqt-Ja-7MJ">
-                                <rect key="frame" x="306" y="515" width="156" height="53"/>
+                                <rect key="frame" x="294" y="522" width="180" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="109-qM-VHR"/>
+                                    <constraint firstAttribute="width" constant="180" id="yRS-DQ-TsB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <state key="normal" title="Hard (7x4)"/>
+                                <state key="normal" title="Hard (7x4)">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
