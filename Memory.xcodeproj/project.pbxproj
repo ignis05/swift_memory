@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB4BCDAC2343754E001F2DC6 /* img in Resources */ = {isa = PBXBuildFile; fileRef = AB4BCDAB2343754E001F2DC6 /* img */; };
+		AAD39ED12343B2A30094BA99 /* img in Resources */ = {isa = PBXBuildFile; fileRef = AAD39ED02343B2A30094BA99 /* img */; };
 		AB9545DC233A42FC00674FA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9545DB233A42FC00674FA7 /* AppDelegate.swift */; };
 		AB9545DE233A42FC00674FA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9545DD233A42FC00674FA7 /* ViewController.swift */; };
 		AB9545E1233A42FC00674FA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB9545DF233A42FC00674FA7 /* Main.storyboard */; };
@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB4BCDAB2343754E001F2DC6 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; name = img; path = ../img; sourceTree = "<group>"; };
+		AAD39ED02343B2A30094BA99 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		AB9545D8233A42FC00674FA7 /* Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9545DB233A42FC00674FA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB9545DD233A42FC00674FA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				AB9545EF233A42FD00674FA7 /* MemoryTests */,
 				AB9545FA233A42FD00674FA7 /* MemoryUITests */,
 				AB9545D9233A42FC00674FA7 /* Products */,
-				AB4BCDAB2343754E001F2DC6 /* img */,
+				AAD39ED02343B2A30094BA99 /* img */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,7 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB4BCDAC2343754E001F2DC6 /* img in Resources */,
+				AAD39ED12343B2A30094BA99 /* img in Resources */,
 				AB9545E6233A42FD00674FA7 /* LaunchScreen.storyboard in Resources */,
 				AB9545E3233A42FD00674FA7 /* Assets.xcassets in Resources */,
 				AB9545E1233A42FC00674FA7 /* Main.storyboard in Resources */,
