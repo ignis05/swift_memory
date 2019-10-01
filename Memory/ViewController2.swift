@@ -11,17 +11,30 @@ import UIKit
 class ViewController2: UIViewController {
 
     var hard:Bool!
-    @IBOutlet weak var test: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let width:Int
+        let heigth:Int
         if(hard){
-            test.text = "hard"
+            width = 7
+            heigth = 4
         }
         else {
-            test.text = "easy"
+            width = 4
+            heigth = 3
         }
-        // Do any additional setup after loading the view.
+        for h in 0...heigth-1 {
+            for w in 0...width-1 {
+                let button : UIButton = UIButton()
+                let img :UIImage = UIImage(named : "img/none.jpg")!    //dodaj ten folder do projektu
+                button.frame = CGRect(x: 100*w, y:100 + 100 * h, width: 100, height: 100) // rozmiar i punkt wstwienia
+                button.tag = 12 //mozna dodac liczbowy tag
+                button.setBackgroundImage(img, for: UIControl.State.normal) // dodanie tła
+                self.view.addSubview(button) //dodanie buttona do widoku
+            }
+        }
     }
     
 
