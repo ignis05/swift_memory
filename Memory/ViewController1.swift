@@ -10,23 +10,23 @@ import UIKit
 
 class ViewController1: UIViewController {
     
-    var hard:Bool!
+    var hard:Bool! = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func easy(_ sender: UIButton) {
-        hard = false
-    }
     
-    @IBAction func hard(_ sender: UIButton) {
-        hard = true
-    }
+    @IBOutlet weak var select: UISegmentedControl!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dest = segue.destination as! ViewController2
-        dest.hard = hard
+        if select.selectedSegmentIndex == 0{
+            dest.hard = false
+        }
+        else {
+            dest.hard = true
+        }
     }
 
     /*

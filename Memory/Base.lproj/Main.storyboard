@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxy-K7-kXp">
-                                <rect key="frame" x="294" y="422" width="180" height="60"/>
+                                <rect key="frame" x="294" y="492" width="180" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.04486640304286782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JO2-Te-FYn"/>
@@ -33,41 +33,38 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Easy (4x3)"/>
+                                <state key="normal" title="Play"/>
                                 <connections>
-                                    <action selector="easy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="07v-M8-VO5"/>
-                                    <segue destination="Ee2-Js-C9O" kind="show" id="MZ3-zJ-POg"/>
+                                    <segue destination="Ee2-Js-C9O" kind="show" id="PrO-9a-cff"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqt-Ja-7MJ">
-                                <rect key="frame" x="294" y="522" width="180" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="imq-a8-hgM">
+                                <rect key="frame" x="324" y="402" width="120" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="109-qM-VHR"/>
-                                    <constraint firstAttribute="width" constant="180" id="yRS-DQ-TsB"/>
+                                    <constraint firstAttribute="width" constant="120" id="FWf-Xb-GHZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="qtV-38-xTh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <state key="normal" title="Hard (7x4)">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="hard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUu-ym-OZt"/>
-                                    <segue destination="Ee2-Js-C9O" kind="show" id="C5z-hC-6Hz"/>
-                                </connections>
-                            </button>
+                                <segments>
+                                    <segment title="Easy"/>
+                                    <segment title="Hard"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Rqt-Ja-7MJ" firstAttribute="top" secondItem="Nxy-K7-kXp" secondAttribute="bottom" constant="40" id="2C5-R5-yT7"/>
-                            <constraint firstItem="Rqt-Ja-7MJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3t5-9v-HGA"/>
                             <constraint firstItem="zyD-dP-DeC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5F1-1G-nnw"/>
-                            <constraint firstItem="Nxy-K7-kXp" firstAttribute="top" secondItem="zyD-dP-DeC" secondAttribute="bottom" constant="80" id="bKp-CZ-xGQ"/>
+                            <constraint firstItem="imq-a8-hgM" firstAttribute="top" secondItem="zyD-dP-DeC" secondAttribute="bottom" constant="60" id="JLh-Wx-slj"/>
+                            <constraint firstItem="imq-a8-hgM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S3k-GW-1Lp"/>
+                            <constraint firstItem="Nxy-K7-kXp" firstAttribute="top" secondItem="imq-a8-hgM" secondAttribute="bottom" constant="50" id="YeJ-1m-qry"/>
                             <constraint firstItem="Nxy-K7-kXp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gF4-Z2-5KV"/>
                             <constraint firstItem="zyD-dP-DeC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-200" id="lZX-fb-fsQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Lug-yZ-zO5"/>
+                    <connections>
+                        <outlet property="select" destination="imq-a8-hgM" id="4kE-dB-44F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,7 +114,4 @@
             <point key="canvasLocation" x="-310" y="233"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="MZ3-zJ-POg"/>
-    </inferredMetricsTieBreakers>
 </document>
