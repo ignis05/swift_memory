@@ -25,14 +25,25 @@ class ViewController2: UIViewController {
             width = 4
             heigth = 3
         }
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        
+        var index:Int = 0
+        let scrh:Int = Int(screenSize.height) + 70
+        let scrw:Int = Int(screenSize.width)
+        let blockw:Int = scrw - ((width + 1) * 2)
         for h in 0...heigth-1 {
             for w in 0...width-1 {
                 let button : UIButton = UIButton()
-                let img :UIImage = UIImage(named : "img/none.jpg")!    //dodaj ten folder do projektu
-                button.frame = CGRect(x: 100*w, y:100 + 100 * h, width: 100, height: 100) // rozmiar i punkt wstwienia
-                button.tag = 12 //mozna dodac liczbowy tag
+                let img :UIImage = UIImage(named : "img/none.jpg")!
+                let wpos = blockw / width
+                let blockh:Int = heigth * (wpos + 2)
+                let hpos:Int = (scrh  - blockh) / 2
+                button.frame = CGRect(x:4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos) // rozmiar i punkt wstwienia
+                button.tag = index //mozna dodac liczbowy tag
                 button.setBackgroundImage(img, for: UIControl.State.normal) // dodanie tła
                 self.view.addSubview(button) //dodanie buttona do widoku
+                index = index + 1
             }
         }
     }
