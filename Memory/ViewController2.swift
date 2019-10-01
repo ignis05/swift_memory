@@ -85,7 +85,7 @@ class ViewController2: UIViewController {
         }
     }
     @objc func handler(sender: UIButton){
-        print(sender.tag)
+        print("clicked: ",sender.tag)
         sender.setBackgroundImage(imgSources[sender.tag], for: UIControl.State.normal)
         sender.isEnabled = false
         if(selected1 == nil){
@@ -98,6 +98,13 @@ class ViewController2: UIViewController {
                 selected1 = nil
                 selected2 = nil
                 print("matched!")
+                print("matches: ", matches!)
+                if(matches == 0){
+                    print("victory!")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+                }
             }
             else {
                 print("nope!")
