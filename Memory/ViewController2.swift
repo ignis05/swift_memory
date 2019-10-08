@@ -18,12 +18,12 @@ class ViewController2: UIViewController {
     var imgNames:Array<String> = []
     var matches:Int!
     var moves:Int! = 0
+    var width:Int!
+    var heigth:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let width:Int
-        let heigth:Int
         if(hard){
             width = 7
             heigth = 4
@@ -34,8 +34,6 @@ class ViewController2: UIViewController {
         }
         
         matches = width * heigth / 2
-        
-        let screenSize: CGRect = UIScreen.main.bounds
         
         var obrazkiAll:Array<String> = []
             obrazkiAll.append("cabbage")
@@ -60,11 +58,8 @@ class ViewController2: UIViewController {
         obrazki = obrazki + obrazki
         
         var index:Int = 0
-        let scrh:Int = Int(screenSize.height) + 64
-        let scrw:Int = Int(screenSize.width)
-        let blockw:Int = scrw - ((width + 1) * 2)
-        for h in 0...heigth-1 {
-            for w in 0...width-1 {
+        for _ in 0...heigth-1 {
+            for _ in 0...width-1 {
                 let button : UIButton = UIButton()
                 let img :UIImage = UIImage(named : "img/none.jpg")!
                 let rand = Int.random(in: 0 ... obrazki.count - 1 )
@@ -72,10 +67,8 @@ class ViewController2: UIViewController {
                 imgNames.append(obrazki[rand])
                 imgSources.append(img2)
                 obrazki.remove(at: rand)
-                let wpos = blockw / width
-                let blockh:Int = heigth * (wpos + 2)
-                let hpos:Int = (scrh  - blockh) / 2
-                button.frame = CGRect(x:4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos) // rozmiar i punkt wstwienia
+                
+                // rozmiar i punkt wstwienia
                 button.tag = index //mozna dodac liczbowy tag
                 button.setBackgroundImage(img, for: UIControl.State.normal) // dodanie tła
                 button.isExclusiveTouch = true
@@ -84,6 +77,23 @@ class ViewController2: UIViewController {
                 uiButtons.append(button)
                 index = index + 1
             }
+        }
+        switch UIDevice.current.orientation{
+        case .portrait:
+            rotateVer()
+            break
+        case .portraitUpsideDown:
+            rotateVer()
+            break
+        case .landscapeLeft:
+            rotateHor()
+            break
+        case .landscapeRight:
+            rotateHor()
+            break
+        default:
+            rotateVer()
+            break
         }
     }
     @objc func handler(sender: UIButton){
@@ -138,5 +148,57 @@ class ViewController2: UIViewController {
             }
         }
     }
-
+    func rotateVer(){
+        let screenSize: CGRect = UIScreen.main.bounds
+        let scrh:Int = Int(screenSize.height) + 64
+        let scrw:Int = Int(screenSize.width)
+        print(scrh,scrw)
+        let blockw:Int = scrw - ((width + 1) * 2)
+        var i:Int! = 0
+        for h in 0...heigth-1 {
+            for w in 0...width-1 {
+                let button:UIButton = uiButtons[i]
+                let wpos = blockw / width
+                let blockh:Int = heigth * (wpos + 2)
+                let hpos:Int = (scrh  - blockh) / 2
+                button.frame = CGRect(x:4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos)
+                i = i+1
+        }
+        }
+    }
+    func rotateHor(){
+        let screenSize: CGRect = UIScreen.main.bounds
+        let scrh:Int = Int(screenSize.height) + 64
+        let scrw:Int = Int(screenSize.width)
+        let blockw:Int = scrw - ((width + 1) * 2)
+        var i:Int! = 0
+        for h in 0...heigth-1 {
+            for w in 0...width-1 {
+                let button:UIButton = uiButtons[i]
+                let wpos = blockw / width
+                let blockh:Int = heigth * (wpos + 2)
+                let hpos:Int = (scrh  - blockh) / 2
+                button.frame = CGRect(x:4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos)
+                i = i+1
+            }
+        }
+    }
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        switch UIDevice.current.orientation{
+        case .portrait:
+           rotateVer()
+            break
+        case .portraitUpsideDown:
+            rotateVer()
+            break
+        case .landscapeLeft:
+            rotateHor()
+            break
+        case .landscapeRight:
+            rotateHor()
+            break
+        default:
+            break
+        }
+    }
 }
