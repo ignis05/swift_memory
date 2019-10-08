@@ -17,6 +17,7 @@ class ViewController2: UIViewController {
     var uiButtons:Array<UIButton> = []
     var imgNames:Array<String> = []
     var matches:Int!
+    var moves:Int! = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +51,10 @@ class ViewController2: UIViewController {
             obrazkiAll.append("ginger")
             obrazkiAll.append("j-radish")
             obrazkiAll.append("l-lettuce")
-            obrazkiAll.append("lettuce")
             obrazkiAll.append("potato")
             obrazkiAll.append("red-onion")
             obrazkiAll.append("snowpea")
+            obrazkiAll.append("lettuce")
         
         var obrazki = obrazkiAll.prefix(width * heigth / 2)
         obrazki = obrazki + obrazki
@@ -93,6 +94,7 @@ class ViewController2: UIViewController {
         }
         else {
             selected2 = sender
+            moves = moves + 1
             if(imgNames[selected1.tag] == imgNames[selected2.tag]){
                 matches = matches - 1
                 selected1 = nil
@@ -101,7 +103,7 @@ class ViewController2: UIViewController {
                 print("matches: ", matches!)
                 if(matches == 0){
                     print("victory!")
-                    let alert = UIAlertController(title: "You won!", message: "Congratulations!", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "You won!", message: "Moves: " + String(moves), preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             self.navigationController?.popToRootViewController(animated: true)
