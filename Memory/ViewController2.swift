@@ -78,22 +78,11 @@ class ViewController2: UIViewController {
                 index = index + 1
             }
         }
-        switch UIDevice.current.orientation{
-        case .portrait:
+        if(UIDevice.current.orientation.isValidInterfaceOrientation ? UIDevice.current.orientation.isLandscape : UIApplication.shared.statusBarOrientation.isLandscape){
             rotateVer()
-            break
-        case .portraitUpsideDown:
-            rotateVer()
-            break
-        case .landscapeLeft:
+        }
+        else {
             rotateHor()
-            break
-        case .landscapeRight:
-            rotateHor()
-            break
-        default:
-            rotateVer()
-            break
         }
     }
     @objc func handler(sender: UIButton){
@@ -152,8 +141,13 @@ class ViewController2: UIViewController {
         let screenSize: CGRect = UIScreen.main.bounds
         let scrh:Int = Int(screenSize.height) + 64
         let scrw:Int = Int(screenSize.width)
-        print(scrh,scrw)
-        let blockw:Int = scrw - ((width + 1) * 2)
+        var blockw:Int = scrw - ((width + 1) * 2)
+        let blockh:Int = scrh - ((width + 1) * 2)
+        var marginleft = 0
+        if(blockw > blockh){
+            blockw = blockh
+            marginleft = (scrw - blockh) / 2
+        }
         var i:Int! = 0
         for h in 0...heigth-1 {
             for w in 0...width-1 {
@@ -161,7 +155,7 @@ class ViewController2: UIViewController {
                 let wpos = blockw / width
                 let blockh:Int = heigth * (wpos + 2)
                 let hpos:Int = (scrh  - blockh) / 2
-                button.frame = CGRect(x:4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos)
+                button.frame = CGRect(x:marginleft + 4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos)
                 i = i+1
         }
         }
@@ -170,7 +164,13 @@ class ViewController2: UIViewController {
         let screenSize: CGRect = UIScreen.main.bounds
         let scrh:Int = Int(screenSize.height) + 64
         let scrw:Int = Int(screenSize.width)
-        let blockw:Int = scrw - ((width + 1) * 2)
+        var blockw:Int = scrw - ((width + 1) * 2)
+        let blockh:Int = scrh - ((width + 1) * 2)
+        var marginleft = 0
+        if(blockw > blockh){
+            blockw = blockh
+            marginleft = (scrw - blockh) / 2
+        }
         var i:Int! = 0
         for h in 0...heigth-1 {
             for w in 0...width-1 {
@@ -178,7 +178,7 @@ class ViewController2: UIViewController {
                 let wpos = blockw / width
                 let blockh:Int = heigth * (wpos + 2)
                 let hpos:Int = (scrh  - blockh) / 2
-                button.frame = CGRect(x:4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos)
+                button.frame = CGRect(x:marginleft + 4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos)
                 i = i+1
             }
         }
