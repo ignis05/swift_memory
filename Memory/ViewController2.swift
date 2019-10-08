@@ -78,6 +78,7 @@ class ViewController2: UIViewController {
                 button.frame = CGRect(x:4 + w * (wpos + 2), y:hpos + (wpos + 2) * h, width: wpos, height: wpos) // rozmiar i punkt wstwienia
                 button.tag = index //mozna dodac liczbowy tag
                 button.setBackgroundImage(img, for: UIControl.State.normal) // dodanie tła
+                button.isExclusiveTouch = true
                 self.view.addSubview(button) //dodanie buttona do widoku
                 button.addTarget(self, action: #selector(handler), for: UIControl.Event.touchUpInside)
                 uiButtons.append(button)
@@ -95,6 +96,9 @@ class ViewController2: UIViewController {
         else {
             selected2 = sender
             moves = moves + 1
+            for i in uiButtons{
+                i.isUserInteractionEnabled = false
+            }
             if(imgNames[selected1.tag] == imgNames[selected2.tag]){
                 matches = matches - 1
                 selected1 = nil
@@ -111,6 +115,9 @@ class ViewController2: UIViewController {
                     }))
                     self.present(alert, animated: true)
                 }
+                for i in uiButtons{
+                    i.isUserInteractionEnabled = true
+                }
             }
             else {
                 print("nope!")
@@ -124,6 +131,9 @@ class ViewController2: UIViewController {
                     self.uiButtons[s2].setBackgroundImage(img, for: UIControl.State.normal)
                     self.uiButtons[s1].isEnabled = true
                     self.uiButtons[s2].isEnabled = true
+                    for i in self.uiButtons{
+                        i.isUserInteractionEnabled = true
+                    }
                 }
             }
         }
