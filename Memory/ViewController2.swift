@@ -101,9 +101,13 @@ class ViewController2: UIViewController {
                 print("matches: ", matches!)
                 if(matches == 0){
                     print("victory!")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
+                    let alert = UIAlertController(title: "You won!", message: "Congratulations!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }
+                    }))
+                    self.present(alert, animated: true)
                 }
             }
             else {
